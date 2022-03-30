@@ -24,11 +24,14 @@ docker push carlosmendesrv/hello-go
 ### RUN Project
 
 ```
-
+### Starting cluster
 kind create cluster
 
-kubectl apply -f k8s/service.yaml  
+### Loading dependences
+
+kubectl apply -f k8s/services.yaml
+kubectl apply -f k8s/confimap-family.yaml
+kubectl apply -f k8s/deployment.yaml
 
 kubectl port-forward svc/goserver-service 9000:80
-
 ```
